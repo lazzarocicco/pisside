@@ -1,4 +1,4 @@
-#N canvas 239 92 1573 972 12;
+#N canvas 340 81 1573 972 12;
 #X obj 640 776 tabplay~ a1, f 23;
 #X obj 971 518 soundfiler;
 #X floatatom 1111 364 20 0 0 0 - - -;
@@ -21,11 +21,11 @@
 #X array a1 958464 float 2;
 #X coords 0 1 958464 -1 200 140 1;
 #X restore 967 569 graph;
-#X obj 909 518 / 48000;
+#X obj 899 549 / 48000;
 #X floatatom 954 720 20 0 0 0 - - -;
 #X obj 970 245 openpanel;
-#X obj 921 109 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 970 88 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X msg 970 279 read -resize \$1 a1;
 #X text 511 661 dur;
 #X text 699 661 start point;
@@ -38,15 +38,17 @@
 #X text 55 159 Lazzaro 2020;
 #X text 53 107 https://github.com/marrongiallo;
 #X text 54 52 part of pisside V2.0;
-#X text 961 116 <- click here to load audio from a file;
+#X text 1010 94 <- click here to load audio from a file;
 #X text 950 738 total duration audio file in seconds;
 #X text 52 18 RANDOM PLAY;
 #X text 830 339 RANDOM PLAY;
 #X text 415 198 to "change music" try to write 2;
 #X text 414 220 instead of 19 in the random object ->;
-#X obj 682 219 random 19;
 #X msg 1063 831 \; pd dsp 1;
 #X obj 1063 810 loadbang;
+#X text 1027 107 NO MP3;
+#X text 1179 633 ARRAY;
+#X obj 682 219 random 19;
 #X connect 0 0 9 0;
 #X connect 0 0 9 1;
 #X connect 0 1 11 0;
@@ -63,7 +65,7 @@
 #X connect 7 0 0 0;
 #X connect 8 0 7 0;
 #X connect 10 0 3 0;
-#X connect 10 1 40 0;
+#X connect 10 1 44 0;
 #X connect 11 0 10 0;
 #X connect 12 0 11 0;
 #X connect 13 0 14 0;
@@ -72,5 +74,5 @@
 #X connect 20 0 22 0;
 #X connect 21 0 20 0;
 #X connect 22 0 1 0;
-#X connect 40 0 4 0;
-#X connect 42 0 41 0;
+#X connect 41 0 40 0;
+#X connect 44 0 4 0;
