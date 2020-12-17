@@ -1,4 +1,4 @@
-#N canvas 334 97 1548 955 12;
+#N canvas 239 92 1573 972 12;
 #X obj 640 776 tabplay~ a1, f 23;
 #X obj 971 518 soundfiler;
 #X floatatom 1111 364 20 0 0 0 - - -;
@@ -12,7 +12,7 @@
 #X obj 374 155 t b b, f 42;
 #X obj 811 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1057 521 t b;
+#X obj 1057 519 t b;
 #X obj 163 551 / 10;
 #X floatatom 163 594 10 0 0 0 - - -;
 #X obj 249 554 / 48000;
@@ -21,7 +21,7 @@
 #X array a1 958464 float 2;
 #X coords 0 1 958464 -1 200 140 1;
 #X restore 967 569 graph;
-#X obj 907 522 / 48000;
+#X obj 909 518 / 48000;
 #X floatatom 954 720 20 0 0 0 - - -;
 #X obj 970 245 openpanel;
 #X obj 921 109 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -44,7 +44,9 @@
 #X text 830 339 RANDOM PLAY;
 #X text 415 198 to "change music" try to write 2;
 #X text 414 220 instead of 19 in the random object ->;
-#X obj 682 219 random 2;
+#X obj 682 219 random 19;
+#X msg 1063 831 \; pd dsp 1;
+#X obj 1063 810 loadbang;
 #X connect 0 0 9 0;
 #X connect 0 0 9 1;
 #X connect 0 1 11 0;
@@ -71,3 +73,4 @@
 #X connect 21 0 20 0;
 #X connect 22 0 1 0;
 #X connect 40 0 4 0;
+#X connect 42 0 41 0;
