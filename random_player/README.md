@@ -1,6 +1,6 @@
 # random_player.pd
 
-![random_player screenshot](random_player_screen_shot.png)
+![random_player screenshot](random_player_screen_shot2.png)
 
 Before to try to execute random_play.pd
 

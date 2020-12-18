@@ -1,61 +1,111 @@
-#N canvas 340 81 1573 972 12;
-#X obj 640 776 tabplay~ a1, f 23;
-#X obj 971 518 soundfiler;
+#N canvas 330 73 1573 972 16;
+#X obj 458 779 tabplay~ a1, f 23;
+#X obj 971 448 soundfiler;
 #X floatatom 1111 364 20 0 0 0 - - -;
-#X obj 366 493 random, f 12;
-#X obj 688 272 + 1;
-#X obj 688 315 * 4800;
-#X floatatom 545 661 10 0 0 0 - - -;
-#X obj 640 743 pack f f;
-#X floatatom 625 661 10 0 0 0 - - -;
-#X obj 625 884 dac~ 1 2;
-#X obj 374 155 t b b, f 42;
-#X obj 811 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 430 448 random, f 12;
+#X obj 736 311 + 1;
+#X obj 736 354 * 4800;
+#X floatatom 363 664 10 0 0 0 - - -;
+#X obj 458 746 pack f f;
+#X floatatom 473 664 10 0 0 0 - - -;
+#X obj 443 887 dac~ 1 2;
+#X obj 335 212 t b b, f 42;
+#X obj 881 164 bng 40 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1057 519 t b;
-#X obj 163 551 / 10;
-#X floatatom 163 594 10 0 0 0 - - -;
-#X obj 249 554 / 48000;
-#X floatatom 249 595 10 0 0 0 - - -;
+#X obj 889 105 t b;
+#X obj 128 491 / 10;
+#X floatatom 128 534 10 0 0 0 - - -;
+#X obj 236 494 / 48000;
+#X floatatom 236 535 10 0 0 0 - - -;
 #N canvas 0 50 450 250 (subpatch) 0;
 #X array a1 958464 float 2;
 #X coords 0 1 958464 -1 200 140 1;
-#X restore 967 569 graph;
-#X obj 899 549 / 48000;
-#X floatatom 954 720 20 0 0 0 - - -;
-#X obj 970 245 openpanel;
-#X obj 970 88 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X msg 970 279 read -resize \$1 a1;
-#X text 511 661 dur;
-#X text 699 661 start point;
-#X text 133 594 dur;
-#X text 325 594 start point;
-#X text 132 616 ------------ in seconds ---------------;
-#X text 1111 382 total dur audio file in samples;
-#X text 505 684 ---------------------- in samples -----;
-#X text 53 37 a simple random player;
+#X restore 967 499 graph;
+#X obj 857 501 / 48000;
+#X floatatom 776 616 20 0 0 0 - - -;
+#X obj 1040 245 openpanel;
+#X obj 1076 78 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1040 279 read -resize \$1 a1;
+#X text 329 664 dur;
+#X text 569 664 start point;
+#X text 98 534 dur;
+#X text 333 538 start point;
+#X text 84 556 ------------ in seconds ---------------;
+#X text 1110 390 total dur audio file in samples;
+#X text 323 687 ---------------------- in samples -----;
+#X text 52 42 a simple random player;
 #X text 55 159 Lazzaro 2020;
 #X text 53 107 https://github.com/marrongiallo;
-#X text 54 52 part of pisside V2.0;
-#X text 1010 94 <- click here to load audio from a file;
-#X text 950 738 total duration audio file in seconds;
-#X text 52 18 RANDOM PLAY;
-#X text 830 339 RANDOM PLAY;
-#X text 415 198 to "change music" try to write 2;
-#X text 414 220 instead of 19 in the random object ->;
-#X msg 1063 831 \; pd dsp 1;
-#X obj 1063 810 loadbang;
-#X text 1027 107 NO MP3;
-#X text 1179 633 ARRAY;
-#X obj 682 219 random 19;
+#X text 51 62 part of pisside V2.0;
+#X text 1116 84 <- click here to load audio from a file;
+#X text 772 642 total duration audio file in seconds;
+#X text 379 249 to "change music" try to write 2;
+#X text 364 269 instead of 19 in the random object ->;
+#X msg 825 812 \; pd dsp 1;
+#X obj 825 778 loadbang;
+#X text 1148 108 NO MP3;
+#X text 1179 563 ARRAY;
+#X text 835 370 RANDOM PLAYER;
+#X text 52 18 RANDOM PLAYER;
+#N canvas 556 149 1222 857 random_object_explained 0;
+#X obj 104 203 random 10;
+#X obj 104 333 nbx 10 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+28 -262144 -1 -1 4 256;
+#X obj 105 48 bng 40 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 316 721 nbx 10 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+28 -262144 -1 -1 23343 256;
+#X obj 317 456 bng 40 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 316 611 random 48000;
+#X text 255 201 the random object every time it receives an input output
+a number between zero and the number you provide minus one (in this
+example it can output one of ten numbers between zero and nine);
+#X text 393 441 If you provide the total number of samples present
+in an audio file the random object can output all possible access points
+to the audio data as the "audio sample" is the smallest entity of an
+audio data stream.;
+#X text 510 606 if the duration of an audio file is 1 second the total
+number of "audio samples" is 48000 (in some circumstances this can
+change);
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X restore 113 321 pd random_object_explained;
+#N canvas 655 191 1127 661 soundfiler_object_explained 0;
+#X obj 264 314 soundfiler;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array a_example 958464 float 2;
+#X coords 0 1 958464 -1 200 140 1 0 0;
+#X restore 372 257 graph;
+#X obj 264 488 nbx 10 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+28 -262144 -1 -1 958464 256;
+#X text 541 481 the numbers of audio samples inside the file;
+#X text 263 113 MP3 are NOT allowed;
+#X text 262 84 In this patch you can load only .WAV or .AIFF audio
+file;
+#X text 543 504 a very big big number!!;
+#X obj 169 148 openpanel;
+#X msg 264 148 read -resize \$1 a_example;
+#X obj 169 86 bng 40 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 2 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 9 0 7 0;
+#X restore 112 359 pd soundfiler_object_explained;
+#X text 1073 53 START FROM HERE;
+#X floatatom 547 447 20 0 0 0 - - -;
+#X obj 736 270 random 19;
 #X connect 0 0 9 0;
 #X connect 0 0 9 1;
 #X connect 0 1 11 0;
 #X connect 1 0 2 0;
 #X connect 1 0 18 0;
 #X connect 1 1 12 0;
-#X connect 2 0 3 1;
+#X connect 2 0 47 0;
 #X connect 3 0 8 0;
 #X connect 3 0 15 0;
 #X connect 4 0 5 0;
@@ -65,7 +115,7 @@
 #X connect 7 0 0 0;
 #X connect 8 0 7 0;
 #X connect 10 0 3 0;
-#X connect 10 1 44 0;
+#X connect 10 1 48 0;
 #X connect 11 0 10 0;
 #X connect 12 0 11 0;
 #X connect 13 0 14 0;
@@ -74,5 +124,6 @@
 #X connect 20 0 22 0;
 #X connect 21 0 20 0;
 #X connect 22 0 1 0;
-#X connect 41 0 40 0;
-#X connect 44 0 4 0;
+#X connect 39 0 38 0;
+#X connect 47 0 3 1;
+#X connect 48 0 4 0;
